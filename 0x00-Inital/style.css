@@ -156,14 +156,32 @@
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6 {
+  h4 {
     font-family: var(--ff-heading);
     color: var(--text-high-contrast);
-  }
-  h1 {
     font-size: var(--font-size-heading-lg);
+    background-color: var(--background-main);
+  }
+  a {
+    color: var(--text-high-contrast);
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--text-brand-light);
+  }
+}
+
+@layer layout {
+  .wrapper {
+    max-width: 1130px;
+    margin-inline: auto;
+    padding: 1rem;
+
+    box-sizing: content-box;
+    &[data-width="wide"] {
+      max-width: 1330px;
+    }
   }
 }
 
