@@ -215,9 +215,10 @@
   }
   .wrapper {
     --wrapper-max-width: 1130px;
+    --wrapper-padding: 1rem;
     max-width: var(--wrapper-max-width);
     margin-inline: auto;
-    padding: 1rem;
+    padding-inline: var(--wrapper-padding);
 
     box-sizing: content-box;
     &[data-width="narrow"] {
@@ -231,19 +232,22 @@
 
 @layer components {
   .site-header {
-    padding: 1rem;
+    padding-block: 1rem;
   }
   .site-header__inner {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
+    gap: 0.5rem 2rem;
   }
   .primary-navigation {
     ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 1rem;
+      gap: 0.5rem 2rem;
     }
   }
   .site-footer {
