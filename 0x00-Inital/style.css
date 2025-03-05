@@ -179,12 +179,26 @@
 }
 
 @layer layout {
+  .flex-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
   .flow > * + * {
     margin-top: var(--flow-space, 1em);
   }
   .grid-flow {
     display: grid;
     gap: var(--grid-flow-gap, 1rem);
+  }
+  .grid-auto-fit {
+    --auto-fit-min-col-size: 250px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--auto-fit-min-col-size), 100%), 1fr)
+    );
   }
   .equal-columns {
     display: grid;
@@ -346,8 +360,14 @@
       display: block;
     }
   }
+  .mushroom-guide {
+    --card-title-font-size: var(--font-size-lg);
+    --card-title-color: var(--text-high-contrast);
+    --card-gap: 0.75rem;
+  }
   .cards {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--card-gap, 1rem);
     padding: 1rem;
     background-color: var(--background-light);
@@ -360,6 +380,40 @@
     font-size: var(--card-title-font-size, var(--font-size-heading-sm));
     color: var(--card-title-color, var(--text-brand));
   }
+  .card_note {
+    margin-block-start: auto;
+    background-color: var(--background-extra-light);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-2);
+  }
+  .tag-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    li {
+      font-family: var(--ff-heading);
+      color: var(--text-high-contrast);
+      font-size: var(--font-size-sm);
+      border-radius: var(--border-radius-1);
+      padding: 0rem 0.25rem;
+    }
+    [data-edible="edible"] {
+      background-color: var(--background-accent-main);
+    }
+    [data-edible="toxic"] {
+      background-color: var(--clr-red-500);
+    }
+    [data-season="summer"] {
+      background-color: var(--background-accent-main);
+    }
+    [data-season="spring"] {
+      background-color: var(--clr-teal-500);
+    }
+    [data-season="fall"] {
+      background-color: var(--clr-orange-500);
+    }
+  }
+
   .button {
     display: inline-flex;
     text-decoration: none;
@@ -375,6 +429,13 @@
   .button.focus-visible {
     color: var(--text-high-contrast);
     background-color: var(--background-accent-light);
+  }
+  select {
+    padding: 0.5rem 1rem;
+    background-color: var(--background-accent-main);
+    border: 0;
+    border-radius: var(--border-radius-2);
+    color: var(--text-high-contrast);
   }
 }
 
