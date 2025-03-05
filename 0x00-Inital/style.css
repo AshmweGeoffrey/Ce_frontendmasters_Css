@@ -152,6 +152,11 @@
   html {
     font-family: var(--ff-body);
     font-size: var(--font-size-regular);
+    scroll-padding: 3rem;
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+    scroll-behavior: smooth;
   }
   body {
     color: var(--text-main);
@@ -364,6 +369,58 @@
     --card-title-font-size: var(--font-size-lg);
     --card-title-color: var(--text-high-contrast);
     --card-gap: 0.75rem;
+  }
+  .faq-bento {
+    --card-title-color: var(--text-high-contrast);
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "card-one"
+      "card-two"
+      "card-three"
+      "card-four";
+    @media (width > 600px) {
+      grid-template-areas:
+        "card-one card-two"
+        "card-three card-four";
+    }
+    @media (width > 900px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "card-one card-two card-four"
+        "card-three card-three card-four";
+    }
+    .cards > img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (width > 600px) {
+      .cards:nth-child(even) > img {
+        order: 3;
+      }
+    }
+    .cards:nth-child(1) {
+      grid-area: card-one;
+    }
+    .cards:nth-child(2) {
+      grid-area: card-two;
+    }
+    .cards:nth-child(3) {
+      grid-area: card-three;
+      @media (width > 900px) {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        img {
+          grid-column: 1 / 2;
+          grid-row: 1 / 3;
+        }
+      }
+    }
+    .cards:nth-child(4) {
+      grid-area: card-four;
+    }
   }
   .cards {
     display: flex;
