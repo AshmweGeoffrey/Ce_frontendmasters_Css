@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="main.js" defer></script>
+    <script src="mushroom_filter.js" defer></script>
   </head>
   <body>
     <a class="skip-to-main" href="#main">Skip To Main</a>
@@ -89,13 +90,13 @@
           <div class="flow">
             <h2 class="section-title">Get to know your mushrooms</h2>
             <div class="flex-group">
-              <select>
+              <select name="season" id="season">
                 <option value="all">Season: All</option>
                 <option value="spring">Spring</option>
                 <option value="summer">Summer</option>
                 <option value="fall">Fall</option>
               </select>
-              <select>
+              <select id="edible" name="edible">
                 <option value="all">Type: All</option>
                 <option value="edible">Edible</option>
                 <option value="toxic">Toxic</option>
